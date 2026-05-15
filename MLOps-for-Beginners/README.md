@@ -6,6 +6,9 @@ models must be deployed, monitored, updated, and maintained.
 This module introduces beginner-friendly MLOps concepts in a simple,
 structured way — no prior DevOps experience needed.
 
+<img width="1440" height="1040" alt="image" src="https://github.com/user-attachments/assets/fe1286ec-5062-4a09-a227-4aaf72eb7632" />
+
+
 ## What You Will Learn
 
 - What MLOps is and why it matters
