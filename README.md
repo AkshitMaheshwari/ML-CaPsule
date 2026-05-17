@@ -29,7 +29,21 @@ Welcome to **ML-Capsule**!!! This repository is a comprehensive collection of ma
     <img src="https://img.shields.io/github/issues-pr-closed/Niketkumardheeryan/ML-CaPsule" alt="GitHub closed pull requests" />
   </p>
 </div>
+## 📑 Table of Contents
 
+- [📈 Why Machine Learning?](#-why-machine-learning)
+- [📚 Pre-requisites](#-pre-requisites)
+- [🗂️ Topics Covered](#️-topics-covered)
+- [📂 Project Descriptions](#-project-descriptions)
+- [📜 Summary](#-summary)
+- [🔗 Useful URLs](#-useful-urls)
+- [🚀 Get Started](#-get-started)
+- [⚙️ Contribution Guidelines](#️-contribution-guidelines)
+- [📖 Code of Conduct](#-code-of-conduct)
+- [📝 License](#-license)
+- [✨ Contributors](#-some-awesome-contributors-)
+- [❤️ Stargazers](#-stargazers-️)
+- [❤️ Forkers](#-forkers-️)
 
 
 ## 📈 Why Machine Learning?
