@@ -1,0 +1,90 @@
+# Recommendation System
+
+## Overview
+
+This project implements a simple **content-based recommendation system** using machine learning techniques.
+
+A content-based recommendation system suggests items similar to what a user already likes. In this project, movie-related features are used to recommend similar movies.
+
+For example, if a user likes a movie, the system recommends movies with similar genres, keywords, cast, or other related information.
+
+---
+
+## How It Works
+
+The recommendation system follows these steps:
+
+### Step 1: Load and Explore Dataset
+The dataset is imported and checked to understand the available movie information.
+
+### Step 2: Select Important Features
+Relevant movie features are selected to improve recommendations.
+
+Examples of features:
+- Genres
+- Keywords
+- Cast
+- Director
+
+### Step 3: Combine Features
+The selected features are combined into a single column for processing.
+
+### Step 4: Convert Text into Numbers
+`CountVectorizer` is used to convert text data into numerical form.
+
+### Step 5: Calculate Similarity
+Cosine similarity is used to find movies that are similar to each other.
+
+### Step 6: Recommend Movies
+The system recommends movies based on similarity scores.
+
+---
+
+## Files in This Folder
+
+```text
+recommendation_system/
+│── README.md
+│── content_based_recommendation.ipynb
+│── movie_dataset.csv
+File Description
+content_based_recommendation.ipynb → Main notebook containing recommendation system code
+movie_dataset.csv → Dataset used for movie recommendations
+README.md → Project documentation
+Technologies Used
+Python
+Pandas
+NumPy
+Scikit-learn
+Jupyter Notebook
+Required Libraries
+
+Install the required libraries before running the notebook:
+
+pip install pandas numpy scikit-learn
+How to Run the Project
+Clone the repository
+git clone https://github.com/Niketkumardheeryan/ML-CaPsule.git
+Open the project folder
+Open content_based_recommendation.ipynb
+Run all notebook cells step by step
+
+
+
+Output
+
+The system recommends similar movies based on movie features and cosine similarity.
+
+Future Improvements
+
+Some possible improvements:
+
+Add a better user interface
+Improve recommendation accuracy
+Add more filtering options
+Build a hybrid recommendation system
+Conclusion
+
+This project demonstrates how a content-based recommendation system works using machine learning techniques and similarity measures.
+
+It is a beginner-friendly project to understand recommendation systems in practice.
