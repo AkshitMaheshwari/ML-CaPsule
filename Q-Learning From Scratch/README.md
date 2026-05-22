@@ -312,3 +312,8 @@ eval_env = gym.make('CliffWalking-v1', render_mode='rgb-space')
 * These programs use **tabular Q-learning with discretization** — simple but effective for MountainCar and CliffWalking.
 * More advanced approaches (e.g., **Deep Q-Networks**) can handle continuous spaces without manual discretization.
 
+## Credits and Resources (Would really recommend sentdex's channel for beginners as he covers topics from depth and has a hands-on approach):-
+* <a href="https://www.youtube.com/@sentdex"> sentdex's Youtube Channel</a>
+* <a href="https://youtube.com/playlist?list=PLQVvvaa0QuDezJFIOU5wDdfy4e9vdnx-7&si=wTjdTWFRgLiwK_nV"> sentdex's Reinforcement Learning Playlist </a>
+
+
