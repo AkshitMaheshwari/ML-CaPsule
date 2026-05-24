@@ -1,7 +1,7 @@
 import streamlit as st
 import tensorflow as tf
 
-@st.cache(allow_output_mutation=True)
+@st.cache_resource
 def load_model():
   model=tf.keras.models.load_model('./bird_classification_new_model.h5')
   return model
@@ -23,7 +23,7 @@ classes = ['WATTLED CURASSOW', 'CARMINE BEE-EATER', 'GAMBELS QUAIL', 'UMBRELLA B
 def import_and_predict(image_data, model):
     
         img_size=(224,224)
-        image = ImageOps.fit(image_data, img_size, Image.ANTIALIAS)
+        image = ImageOps.fit(image_data, img_size, Image.LANCZOS)
         img = np.expand_dims(image, axis=0)
     
         prediction = model.predict(img)
