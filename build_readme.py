@@ -1,20 +1,39 @@
-import requests
-from bs4 import BeautifulSoup
-import pathlib
+from pathlib import Path
 import re
-import sys
 
-ROOT_PATH = pathlib.Path(__file__).parent.resolve()
-FEED_URL = 'https://github.com/Niketkumardheeryan/Hands-on-ML-Basic-to-Advance-'
+ROOT_PATH = Path(__file__).parent.resolve()
+
+EXCLUDED_NAMES = {
+    ".github",
+    "CODE_OF_CONDUCT.md",
+    "CONTRIBUTING_GUIDELINES.md",
+    ".github/workflows",
+    "build_readme.py",
+    "requirements.txt",
+    "README.md",
+    "download statistics.jpg",
+    "img",
+    "ml img.jpg",
+    ".git",
+    "__pycache__",
+}
+
 
 def replace_chunk(content, marker, chunk, inline=False):
     r = re.compile(
         r"<!\-\- {} start \-\->.*<!\-\- {} end \-\->".format(marker, marker),
         re.DOTALL,
     )
+
     if not inline:
         chunk = "\n{}\n".format(chunk)
-    chunk = "<!-- {} start -->{}<!-- {} end -->".format(marker, chunk, marker)
+
+    chunk = "<!-- {} start -->{}<!-- {} end -->".format(
+        marker,
+        chunk,
+        marker,
+    )
+
     return r.sub(chunk, content)
 
 def Exract_files_names():
@@ -34,13 +53,24 @@ def Exract_files_names():
         print("ERROR: An unexpected error occurred: {}".format(e))
         sys.exit(1)
 
-    soup = BeautifulSoup(req.text, 'html.parser')
+def extract_file_names():
     temp = []
-    li = soup.findAll('div', class_="Box-row Box-row--focus-gray py-2 d-flex position-relative js-navigation-item")
 
-    if not li:
-        print("ERROR: Could not parse any project folders. The page structure may have changed.")
-        sys.exit(1)
+    for path in sorted(ROOT_PATH.iterdir(), key=lambda item: item.name.casefold()):
+        if not path.is_dir():
+            continue
+
+        if path.name in EXCLUDED_NAMES or path.name.startswith("."):
+            continue
+
+        temp.append(
+            {
+                "fname": path.name,
+                "furl": path.name,
+            }
+        )
+
+    return temp
 
     for i in li:
         for x in i.findAll('a', class_="js-navigation-open Link--primary"):
@@ -53,13 +83,25 @@ def Exract_files_names():
     return temp
 
 if __name__ == "__main__":
+
     readme = ROOT_PATH / "README.md"
-    readme_contents = readme.open().read()
-    file_names = Exract_files_names()
-    file_md = "\n\n".join(["- {}".format(i) for i in file_names])
+
+    with open(readme, "r", encoding="utf-8") as readme_file:
+        readme_contents = readme_file.read()
+
+    file_names = extract_file_names()
+
     file_md = "\n".join(
         ["| [{fname}]({furl}) |".format(**i) for i in file_names]
     )
-    readme_contents = replace_chunk(readme_contents, "Projects", "| Content List | \n | --------------- | \n" + file_md)
-    readme.open("w").write(readme_contents)
+
+    updated_content = replace_chunk(
+        readme_contents,
+        "Projects",
+        "| Content List |\n| --------------- |\n" + file_md,
+    )
+
+    with open(readme, "w", encoding="utf-8") as readme_file:
+        readme_file.write(updated_content)
+
     print("README.md updated successfully.")
