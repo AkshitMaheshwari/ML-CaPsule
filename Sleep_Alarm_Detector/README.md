@@ -1,88 +1,92 @@
-````md
-# 😴 Sleep Alarm Detector
+# Sleep Alarm Detector
 
-A real-time sleep detection system using **OpenCV** and **MediaPipe** that monitors eye closure through your webcam.  
-If your eyes stay closed for too long, the system triggers an alarm and displays a red warning overlay.
+## Overview
+
+Sleep Alarm Detector is a computer vision project that detects drowsiness in real time using a webcam. It monitors the user's eye aspect ratio (EAR) with MediaPipe Face Mesh and triggers an alarm when the eyes remain closed for a specified duration.
+
+This project is implemented as a Jupyter Notebook for easier understanding and execution.
 
 ---
 
 ## Features
 
-- Real-time face and eye tracking
-- Eye Aspect Ratio (EAR) based detection
-- Alarm sound on prolonged eye closure
-- Live status overlay and face box
-- Simple and lightweight
+- Real-time face detection
+- Eye Aspect Ratio (EAR) based drowsiness detection
+- MediaPipe Face Mesh tracking
+- Webcam-based monitoring
+- Alarm on prolonged eye closure
+- Session timer
+- Live status overlay
 
 ---
 
-## Requirements
+## Technologies Used
 
-- Python 3.8+
-- Webcam
-
-Install dependencies:
-
-```bash
-pip install mediapipe==0.10.14 opencv-python numpy pygame
-````
+- Python
+- OpenCV
+- MediaPipe
+- NumPy
+- Pygame
 
 ---
 
-## Setup
+## Project Structure
 
-Place your alarm sound file (`.mp3` or `.wav`) in the project folder and update:
-
-```python
-ALARM_SOUND_FILE = r"your_alarm.mp3"
+```
+Sleep_Alarm_Detector/
+│── Sleep_Alarm.ipynb
+│── requirements.txt
+│── README.md
+│── dragon-studio-censor-beep-3-372460.mp3
 ```
 
-You can also adjust detection sensitivity in `sleep_alarm.py`:
+---
 
-| Variable             | Default | Description                  |
-| -------------------- | ------- | ---------------------------- |
-| `EAR_THRESHOLD`      | `0.22`  | Lower value = less sensitive |
-| `EYE_CLOSED_SECONDS` | `2.5`   | Time before alarm triggers   |
+## Installation
+
+Clone the repository:
+
+```bash
+git clone <repository-url>
+cd Sleep_Alarm_Detector
+```
+
+Install the required packages:
+
+```bash
+pip install -r requirements.txt
+```
 
 ---
 
-## Run
+## Usage
 
-```bash
-python sleep_alarm.py
-```
-
-Press **Q** to quit.
+1. Open `Sleep_Alarm.ipynb`.
+2. Run all notebook cells in order.
+3. Allow webcam access.
+4. Press **Q** to stop the application.
 
 ---
 
 ## How It Works
 
-* Uses **MediaPipe Face Mesh** for facial landmark tracking
-* Calculates **Eye Aspect Ratio (EAR)** for both eyes
-* Starts a timer when eyes appear closed
-* Triggers alarm if eyes remain closed too long
+- Detects facial landmarks using MediaPipe Face Mesh.
+- Calculates the Eye Aspect Ratio (EAR).
+- Determines whether the eyes are closed.
+- Triggers an alarm if the eyes remain closed beyond the threshold.
+- Displays EAR, alarm status, and session timer on the screen.
 
 ---
 
-## Troubleshooting
+## Future Improvements
 
-| Problem                 | Fix                                                   |
-| ----------------------- | ----------------------------------------------------- |
-| Camera not opening      | Change `cv2.VideoCapture(1)` to `cv2.VideoCapture(0)` |
-| Alarm not playing       | Check `ALARM_SOUND_FILE` path                         |
-| Too many false alarms   | Increase `EAR_THRESHOLD`                              |
-| Alarm triggers too fast | Increase `EYE_CLOSED_SECONDS`                         |
+- Adjustable EAR threshold
+- Blink statistics
+- Fatigue detection analytics
+- Email or notification alerts
 
 ---
 
-## Tech Stack
+## License
 
-* Python
-* OpenCV
-* MediaPipe
-* NumPy
-* Pygame
-
-```
-```
+This project is intended for educational and learning purposes.
