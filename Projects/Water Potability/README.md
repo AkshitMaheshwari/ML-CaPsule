@@ -1,78 +1,89 @@
 # Water Potability Prediction (ML)
 
-**Project goal:** Predict whether a water sample is **potable (safe to drink)** using its **physicochemical properties**.
+## Project Overview
 
-This project demonstrates an end-to-end **binary classification** workflow:
-- Data preprocessing & cleaning
+This project predicts whether a water sample is **potable (safe to drink)** using its **physicochemical properties**. It demonstrates an end-to-end **binary classification** machine learning workflow, from data preprocessing to model evaluation and prediction.
+
+---
+
+## Features
+
+- Data preprocessing and cleaning
 - Exploratory Data Analysis (EDA)
 - Feature engineering
-- Model comparison (multiple classifiers)
-- Evaluation using **Accuracy, Precision, Recall, F1-score, and ROC-AUC**
-- Prediction examples
-
-> **Dataset:** Water Potability (commonly shared Kaggle dataset). 
-> The notebook downloads/loads the dataset and produces the results.
-
----
-
-## Screenshots
-
-![alt text](image.png)
-![alt text](image-1.png)
-
-**When the notebook runs successfully, replace placeholders with real outputs:**
-- Dataset overview (head/nulls): `./screenshots/dataset_overview.png`
-- Class balance: `./screenshots/class_balance.png`
-- Correlations heatmap: `./screenshots/correlation_heatmap.png`
-- Confusion matrix: `./screenshots/confusion_matrix.png`
-- ROC-AUC curve: `./screenshots/roc_auc_curve.png`
-- Feature importance (permutation): `./screenshots/feature_importance.png`
-
+- Feature scaling
+- Comparison of multiple classification models
+- Model evaluation using:
+  - Accuracy
+  - Precision
+  - Recall
+  - F1-Score
+  - ROC-AUC
+- Water potability prediction
 
 ---
 
-## Results (example)
+## Dataset
 
-The notebook prints a metric table like:
+This project uses the **Water Potability** dataset, which contains physicochemical properties of water samples along with their potability labels.
+
+---
+
+## Project Structure
+
+```text
+Projects/
+└── Water Potability/
+    ├── water_potability.ipynb
+    ├── README.md
+    ├── Water_Potability_Report.pdf
+
+```
+
+---
+
+## Project Report
+
+A detailed report containing the project methodology, data preprocessing, exploratory data analysis, model comparison, evaluation metrics, visualizations, and conclusions is available here:
+
+**📄 [Water_Potability_Report.pdf](Water_Potability_Report.pdf)**
+
+---
+
+## Results
+
+The notebook compares multiple machine learning models and evaluates them using:
+
 - Accuracy
 - Precision
 - Recall
-- F1-score
+- F1-Score
 - ROC-AUC
 
-And selects the best-performing model based on ROC-AUC / F1-score.
-
-![alt text](image-2.png)
-
-## Repository structure
-
-```
-Projects/Water Potability/
-  water_potability.ipynb
-  README.md
-  screenshots/            # (optional) generated images
-```
+The best-performing model is selected based on **ROC-AUC** and **F1-Score**.
 
 ---
 
-## How to run
+## How to Run
 
-1. Open `water_potability.ipynb` in Jupyter/VSCode.
-2. Install requirements (see notebook cells).
-3. Run top-to-bottom.
-4. Save generated screenshots into `screenshots/` (optional but recommended).
+1. Clone the repository.
+2. Open `water_potability.ipynb` in Jupyter Notebook or VS Code.
+3. Install the required Python libraries.
+4. Run all notebook cells from top to bottom.
+5. Refer to **Water_Potability_Report.pdf** for detailed analysis and results.
 
 ---
 
-## Notes / Conclusions
+## Conclusion
 
-- Class imbalance is handled via class weights and/or threshold tuning.
-- Feature scaling is applied where needed.
-- Multiple models are compared to avoid selecting a single algorithm blindly.
+- Missing values are handled appropriately.
+- Feature scaling is applied where required.
+- Multiple machine learning algorithms are compared.
+- Performance is evaluated using standard classification metrics.
+- The workflow demonstrates a complete machine learning classification pipeline.
 
 ---
 
 ## License
 
-MIT
-
+This project is licensed under the **MIT License**.
