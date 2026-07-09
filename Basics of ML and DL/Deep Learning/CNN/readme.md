@@ -1,10 +1,43 @@
-# CNN for CIFAR-10 Image Classification
+# Convolutional Neural Network (CNN)
 
 ## Overview
-This notebook demonstrates how to build, train, and evaluate a **Convolutional Neural Network (CNN)** for image classification using the **CIFAR-10** dataset. CNNs are a class of deep learning models specifically designed for processing image data by automatically learning spatial features through convolutional layers.
 
-## About the CIFAR-10 Dataset
-The CIFAR-10 dataset contains **60,000 color images** of size **32×32 pixels** divided into **10 classes**:
+This notebook demonstrates image classification using a Convolutional Neural Network (CNN) implemented with PyTorch. The notebook uses the CIFAR-10 dataset from the Hugging Face Datasets library and covers the complete deep learning workflow, including dataset loading, preprocessing, model building, training, evaluation, and prediction.
+
+---
+
+## Dataset
+
+### Classification Dataset
+
+**Dataset:** CIFAR-10
+
+The dataset is downloaded automatically using the Hugging Face `datasets` library.
+
+Install the required package:
+
+```bash
+pip install datasets
+```
+
+Load the dataset:
+
+```python
+from datasets import load_dataset
+
+dataset = load_dataset("cifar10")
+```
+
+**Dataset Source:**
+
+https://huggingface.co/datasets/cifar10
+
+### Dataset Description
+
+The CIFAR-10 dataset contains **60,000 RGB images** of size **32 × 32 pixels**, divided into **10 image classes**.
+
+Classes:
+
 - Airplane
 - Automobile
 - Bird
@@ -16,61 +49,70 @@ The CIFAR-10 dataset contains **60,000 color images** of size **32×32 pixels** 
 - Ship
 - Truck
 
-The dataset is split into:
-- **50,000** training images
-- **10,000** testing images
+Dataset Split:
 
-## Topics Covered
-- Introduction to Convolutional Neural Networks (CNNs)
-- Loading and preprocessing the CIFAR-10 dataset
-- Data normalization
-- Building a CNN architecture
-- Model compilation and training
-- Model evaluation
-- Accuracy and loss visualization
-- Predicting image classes
-- Performance analysis
+- Training Images: 50,000
+- Testing Images: 10,000
 
-## Learning Objectives
-- Understand the working of Convolutional Neural Networks.
-- Learn how to preprocess image datasets.
-- Build and train a CNN using TensorFlow/Keras.
-- Evaluate model performance on unseen data.
-- Visualize training and validation metrics.
+---
 
-## Model Architecture
-The CNN used in this notebook consists of:
-- Convolutional Layers
-- ReLU Activation
-- Max Pooling Layers
-- Flatten Layer
-- Fully Connected (Dense) Layers
-- Softmax Output Layer
+## Technologies Used
 
-## Applications
-- Image Classification
-- Object Recognition
-- Medical Image Analysis
-- Autonomous Vehicles
-- Face Recognition
-
-## Requirements
-- Python 3.x
+- Python
+- PyTorch
+- Hugging Face Datasets
+- Torchvision
 - NumPy
 - Matplotlib
-- TensorFlow / Keras
-- Scikit-learn
 
-## Expected Outcome
-After completing this notebook, you will be able to:
-- Train a CNN on the CIFAR-10 dataset.
-- Classify images into one of the ten categories.
-- Interpret training and validation accuracy/loss graphs.
-- Understand the fundamentals of deep learning for computer vision.
+---
 
-## References
-- TensorFlow/Keras Documentation
-- CIFAR-10 Dataset
-- Deep Learning by Ian Goodfellow, Yoshua Bengio, and Aaron Courville
+## Notebook Contents
 
-Note: If automatic download fails due to network restrictions, manually download the CIFAR-10 dataset from the official source or place it in the ./data directory before running the notebook.
+The notebook includes:
+
+- Loading the CIFAR-10 dataset using Hugging Face
+- Image preprocessing and normalization
+- Creating a custom PyTorch Dataset
+- Creating DataLoaders
+- Building a Convolutional Neural Network (CNN)
+- Model training
+- Loss calculation
+- Model evaluation
+- Image classification on unseen test data
+
+---
+
+## Learning Outcomes
+
+After completing this notebook, learners will understand:
+
+- Fundamentals of Convolutional Neural Networks (CNNs)
+- Working with image datasets in PyTorch
+- Loading datasets using Hugging Face Datasets
+- Data preprocessing and normalization
+- Building CNN architectures for image classification
+- Training and evaluating deep learning models
+- Performing inference on unseen images
+
+---
+
+## Requirements
+
+Install the required dependencies before running the notebook:
+
+```bash
+pip install torch torchvision datasets matplotlib
+```
+
+---
+
+## Output
+
+After training, the notebook reports:
+
+- Training Loss
+- Test Accuracy
+- Image Classification Predictions
+
+The trained CNN learns to classify images into one of the ten CIFAR-10 object categories.
